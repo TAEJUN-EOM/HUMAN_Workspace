@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+div{ width:50px;
+     height:50px;
+     background:orange;
+     position:relative;
+     }		 
+	</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+<script>
+$(document).ready(function(){	
+	$('button').click(function () {
+		var html = $(this).html();
+		var evalText = "$('div')." + html;
+		console.log(evalText, typeof(evalText));
+		eval(evalText);
+	});
+	 
+	 $('div').animate({
+         left: '500'
+     }, 5000).animate({
+         left: '0'
+     }, 5000);
+});
+</script>
+</head>
+stop() : clearQueue, goToEnd 모두 기본값 false로
+stop(clearQueue) : clearQueue는 boolean, true일때 이벤트 큐에 대기하던 작업을  clear시킴
+stop(clearQueue, goToEnd) : goToEnd는 boolean, true일때 지정한 최종 형태에서 멈춤
+<body>
+<button>stop()</button>
+<button>stop(true)</button>
+<button>stop(false, true)</button>
+<button>stop(true, true)</button>
+<div></div>	 
+</body>
+</html>

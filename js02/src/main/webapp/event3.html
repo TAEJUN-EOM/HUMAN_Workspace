@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+        
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+<script>
+$(document).ready(function(){
+	var cnt = 0, cnt2 = 0;
+ 
+	$("#btn1").click(function(){
+		$("#count1").html(++cnt);
+	});
+	$("#btn2").click(function(){
+		$("#count2").html(++cnt2);
+		$("#btn1").click(); //button1의 이벤트 강제 발생
+	});	
+	
+	$('a').click(function(event){
+		event.preventDefault(); 
+	});
+	$('#f1').submit(function(event){
+		event.preventDefault();
+	});
+});
+</script>
+</head>
+<body> 
+<strong> 이벤트를 발생 시키기 </strong><br>
+Button1 클릭하면 Button1의 Click Count 를 1증가시킵니다.<br>
+Button2 클릭하면 Button2의 Click Count 를 1증가시키고, 
+Button1의 클릭 이벤트를 강제로 발생시킵니다.<br>
+<button id="btn1">Button1</button> <button id="btn2">Button2</button><br>
+<h2>Button1 Click Count : <span id="count1"></span></h2>
+<h2>Button2 Click Count : <span id="count2"></span></h2>
+<strong> 기본 이벤트 취소  </strong><br>
+<a href="http://www.naver.com">네이버</a><br>
+<form  id = "f1" method="get" action="data.jsp">
+email : <input type=email name="email" id="email"><br>
+<input type="submit">
+</form>
+
+
+</body>
+</html>

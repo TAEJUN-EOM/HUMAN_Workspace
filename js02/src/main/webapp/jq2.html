@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+   div { border : 1px solid black;}		 
+	</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+<script>
+$(document).ready(function(){	
+	$('#wrap').on('click', 'h1', function(){
+		var len = $('h1').length;
+		var targetHTML = $(this).html();
+		$("#wrap").append("<h1>"+len+"-"+targetHTML+"</h1>");		
+	}) 
+});
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+      <h1>Header</h1>      
+     </div> 
+</body>
+</html>
