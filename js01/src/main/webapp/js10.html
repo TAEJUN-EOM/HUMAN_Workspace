@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+window.onload=function(){
+	var array = JSON.parse(localStorage.getItem("phonebook"));
+	if (array == null)
+		localStorage.setItem("phonebook", JSON.stringify(new Array));
+	storage_show();
+}
+function storage_show() {
+	var array = JSON.parse(localStorage.getItem("phonebook"));
+	let message ="";
+	for (let i = 0; i < array.length; i++){
+		message = message + array[i].name + ", " + array[i].phone + ", " +
+		"<a href='javascript:storage_remove("+i+");'>삭제</a><br />";		
+	}//for end
+	document.getElementById("output").innerHTML = message;
+}
+
+function storage_append() {
+	var array = JSON.parse(localStorage.getItem("phonebook"));
+	let value1 = document.getElementById("name").value;
+	let value2 = document.getElementById("phone").value;
+	array[array.length] = { "name":value1, "phone":value2 };
+	localStorage.setItem("phonebook", JSON.stringify(array));
+	storage_show();
+	document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+}
+
+function storage_cleanup() {
+	localStorage.removeItem("phonebook");
+	localStorage.setItem("phonebook", JSON.stringify(new Array));
+	storage_show();
+}
+
+function storage_remove(i) {
+	var array = JSON.parse(localStorage.getItem("phonebook"));
+	array.splice(i, 1); 
+	localStorage.setItem("phonebook", JSON.stringify(array));
+	storage_show();
+}
+
+
+
+</script>
+</head>
+<body>
+<strong> JSON 내장 객체와 localStorage 객체</strong><br> 
+JSON.parse() :  JSON형식의 문자열을 JSON객체로 생성 <br>
+JSON.stringify() : JSON객체를 문자열로 만듬(직렬화)<br>
+ <div id="output">JSON 데이터 처리 Example</div>
+  이름: <input id="name" type=text size=8 />
+  전화: <input id="phone" type=text size=12 />
+ <input type=button value='추가' onclick='storage_append();'>
+ <input type=button value='모두 제거' onclick='storage_cleanup();'>   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

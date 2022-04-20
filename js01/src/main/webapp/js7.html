@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+ 
+</script>
+</head>
+<body>
+자바스크립트 언어 : 인터프리터 언어, 함수적 프로그래밍 언어, 객체지향 언어 <br>
+<strong>객체 : </strong><br> 
+ 1. JSON으로 정의되는 객체는 동적으로 속성, 메소드를 추가하거나, 제거할 수 있습니다.<br>
+ 2. function 으로 객체 정의 <br> 
+ 3. ES6에서는 class으로 객체를 정의 <br>
+ 자바스크립트의 모든 객체는 Object를 자동으로 상속받습니다.<br> 
+ <script>
+ var employee = {};  //empty object
+ document.write(typeof(employee)+"<br>");
+ employee.ename = 'Scott';
+ employee.job = 'Developer';
+ employee.salary = 5000;
+ employee.toString = function(){
+	 var output = "";
+	 for(var key in this){ //this는 함수의 소유자인 객체를 참조 : employee
+		 if(key != 'toString'){
+			 output+=key+" : "+this[key]+"<br>";
+		 }//if end
+	 }//for end
+	 return output;
+ }//toString() end
+ document.write(employee.toString());
+ delete(employee.salary);
+ document.write(employee);
+ console.dir(employee) //객체의 구조, 상속관계 확인  
+ </script>
+ <hr>
+ <script>
+ var order = {"orderID": 2015001,
+	     "prodID" : 'pc-win7',
+	     "price" : 980000,
+	     "qty" : 5,
+	     "payment" : function(){ 
+	    	       return this.price*this.qty
+	    	 }
+	     };
+ document.write("주문번호 :"+order.orderID+"<br>");
+ document.write("주문상품 :"+order['prodID']+"<br>");
+ document.write("결제금액 :"+order.payment()+"<br>");
+ document.write("'custID' in order ==>"+('custID' in order)+"<br>");
+ document.write("'prodID' in order ==>"+('prodID' in order)+"<br>");
+ </script>
+ 자바스크립트에서 생성자 함수로 정의되는 객체는 prototype이라는 속성 객체를 가집니다.<br>
+ prototype 공간에 생성자 함수로 생성되는 객체의 메소드들을 정의하게 되면 
+메모리 공간을 절약할 수 있습니다.<br>
+생성자 함수로 객체를 생성할 때는 new 키워드를 사용합니다.<br>
+  <script>
+ //객체 생성 함수
+ function Student(name, kor,math, eng, science){
+	 this.이름 = name;
+	 this.국어 = kor;
+	 this.영어 = eng;
+	 this.수학 = math;
+	 this.과학 = science;
+ }
+ Student.prototype.getSum = function() {
+		return this.국어+this.영어+this.수학+this.과학;
+}	
+Student.prototype.getAverage = function(){
+		return this.getSum()/4;
+}
+ Student.prototype.toString = function(){
+		return this.이름+", "+this.getSum()+", "+this.getAverage();
+}
+ var students =[];
+ students.push(new Student('이길동', 87, 98, 88, 95)); 
+ students.push(new Student('연하진', 92, 98, 96, 98 ));
+ students.push(new Student('구지연', 76, 96, 94, 90));
+ students.push(new Student('나선주', 98, 92, 96, 92 ));
+ students.push(new Student('윤아린', 95, 98, 98, 98 ));
+ students.push(new Student('윤명월', 64, 88, 92, 92 ));
+ students.push(new Student('김미화', 82, 86, 98, 88 ));
+ students.push(new Student('김연화', 88, 74, 78, 92 ));
+ students.push(new Student('박아현', 97, 92, 88, 95 ));
+ students.push(new Student('서준서', 45, 52, 72, 78 ));
+ //for in문을 사용해서 학생이름 총점 평균을 출력
+ var output = "";
+ for(var i in students){
+	 output+= students[i]+"<br>";	 
+ }
+ document.write(output);
+ </script>
+ <hr>
+ <script>
+ document.write("Student 클래스의 타입 : "+typeof Student+"<br>");
+ document.write((Student===Student.prototype.constructor)+"<br>"); 
+class User{
+	constructor(name, email, phone){
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+	}
+	sayHi(){
+		return "안녕하세요?"+this.name+"입니다.";
+	}
+}
+document.write("User 클래스의 타입 : "+typeof User+"<br>");
+document.write((User===User.prototype.constructor)+"<br>");
+document.write(User.prototype.sayHi+"<br>");//프로타입에 정의된 함수 코드
+let user = new User("Park"); //객체 생성
+document.write(user.sayHi()+"<br>"); //메소드 호출
+
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

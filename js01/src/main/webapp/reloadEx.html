@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+div { width:300px; height:300px;}</style>
+<script>
+window.onload = function(){ 
+	let colors =['red', 'green', 'yellow', 'pink', 'cyan', 'orange',
+		'black','magenta', 'blue', 'purple'];
+	let dv = document.getElementById('dv');
+	console.log( parseInt(Math.random()*10)+1 )
+	dv.style.backgroundColor=colors[parseInt(Math.random()*10)+1];
+    setInterval(function(){
+	  location.reload();
+   }, 1000);
+}
+</script>
+</head>
+<body>
+ <div id="dv">
+  내용
+ </div>  
+	 
+	 
+</body>
+</html>
+
+
+
+
+
+

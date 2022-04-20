@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+ table, tr, td , th {border:1px Solid black;}
+ .high_light1 { background:Red; }
+ .high_light2 { background:Orange; }
+ .high_light3 { background:Yellow; }
+ .high_light4 { background:Green; } 
+ .high_light5 { background:Blue; }  
+ 
+ div{  margin:10px;
+       border:3px Solid Black;
+       border-radius:10px;
+       float:left;
+       width:120px; height:120px;
+       text-align:center;
+        }  
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+var xml = '';
+xml += '<friends>';
+xml += '    <friend>';
+xml += '        <name>김우빈</name>';
+xml += '        <language>Ruby</language>';
+xml += '    </friend>';
+xml += '    <friend>';
+xml += '        <name>공유</name>';
+xml += '        <language>Basic</language>';
+xml += '    </friend>';
+xml += '    <friend>';
+xml += '        <name>조인성</name>';
+xml += '        <language>C#</language>';
+xml += '    </friend>';
+xml += '</friends>';
+$(document).ready(function(){
+	var arry = [ {name: "네이버", link:"http://www.naver.com"},
+        {name: "구글", link:"http://www.google.com"},
+        {name: "다음", link:"http://www.daum.com"},
+        {name: "jQuery", link:"http://www.jquery.com"},
+        {name: "jQuery Mobile", link:"http://www.jquerymobile.com"}];
+	
+	var output = "";
+	$.each(arry, function(index, item){
+		output += "<a href="+item.link+"><h1>"
+		          +item.name+"</h1></a><br>";		
+	});
+	document.body.innerHTML += output;
+	/*
+	$("h1").each(function(index, item){
+		$(this).addClass("high_light"+(index+1));
+	});
+	*/
+	$("h1").filter(function(index){
+		return index%3==0;
+	}).css({backgroundColor:'black', color:'white'}); 
+	
+	var xmlDoc = $.parseXML(xml);
+	$(xmlDoc).find('friend').each(function (index) {
+		var output = '';
+        output += '<div>';
+        output += '    <h1>' + $(this).find('name').text() + '</h1>';
+        output += '    <p>' + $(this).find('language').text() + '</p>';
+        output += '</div>';
+        document.body.innerHTML += output;
+	});
+});
+
+</script>
+</head>
+<body> 
+ <h1>item - 0</h1>
+    <h1>item - 1</h1>
+    <h1>item - 2</h1>
+    <h1>item - 3</h1>
+    <h1>item - 4</h1>
+    <h1>item - 5</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

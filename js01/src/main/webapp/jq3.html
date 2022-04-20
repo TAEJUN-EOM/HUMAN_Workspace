@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+  div { border: 1px solid black;
+      width : 300px;
+      height : 300px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+ 
+$(document).ready(function(){
+	//$('h3').last().remove();
+	//$('div').empty();
+	//$('<p></p>').html("This is <mark>web app</mark>").appendTo('body');
+	//$('<p></p>').html('<mark>appendTo</mark>').appendTo('div');
+	//$('<p></p>').html('<mark>prependTo</mark>').prependTo('div');
+	//$('<p></p>').html('<mark>insertAfter</mark>').insertAfter('div');
+	//$('<p></p>').html('<mark>insertBefore</mark>').insertBefore('div');
+	$('div').append(function(){
+		return $('<p></p>').html('<mark>append</mark>');
+	});
+	$('div').prepend(function(){
+		return $('<p></p>').html('<mark>prepend</mark>');
+	});
+	$('div').before(function(){
+		return $('<p></p>').html('<mark>before</mark>');
+	});
+	$('div').after(function(){
+		return $('<p></p>').html('<mark>after</mark>');
+	});
+	
+});
+
+</script>
+</head>
+<body> 
+<h3>제목1</h3>
+<h3>제목2</h3>
+<div>
+<p>단락1</p>
+<p>단락2</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

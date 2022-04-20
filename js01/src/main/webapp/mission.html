@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<style>
+body{
+		font-size:9pt;
+	}
+#panel1{
+		border:1px #000000 solid;
+		line-height:400px;
+		font-size:100px;
+		width:400px;
+		height:400px;
+		text-align:center;
+		vertical-align:middle;		
+		} 
+</style>
+<script>
+//참여 인원 값 가져오기
+//버튼 객체 가져오기, 이벤트 핸들러 등록
+//참여 인원 수 내에서 난수 발생시켜서
+//setInterval을 이용하여 난수를 임의의 크기로 div panel1에 출력 
+//setInterval에서 리턴된 id를 clearInterval시키고 난수가 저장된 변수의 
+//값을 빨간색으로 출력 
+var panel1;
+var totalMember;
+var nTimerID = 0;
+window.onload = function () {	
+	panel1 = document.getElementById("panel1");
+	totalMember = document.getElementById("lab_total");
+	var btnStart = document.getElementById("btn_start");
+	var btnStop = document.getElementById("btn_stop");
+	btnStart.addEventListener("click", function(){
+		if(nTimerID==0){
+			totalMember = Number(totalMember.value);
+			panel1.style.color = "#000000";	
+			nTimerID = setInterval(createNumber,20);
+		}
+	}, false);
+	
+	btnStop.addEventListener("click",function(){
+		if(nTimerID){
+			clearInterval(nTimerID);
+			nTimerID = 0;
+			panel1.style.color = "#ff0000";	
+			panel1.style.fontSize = "200px";
+		}
+	}, false);
+}
+
+function createNumber(){	
+	var nNum = Math.floor(Math.random()*totalMember)+1
+	panel1.innerHTML = nNum;
+	panel1.style.fontSize = 100+(Math.random()*100)+"px";
+}
+</script>
+</head>
+
+<body>
+<div> 
+		<h4>경품추첨기-ver 0.1</h4>
+	
+		<div id="panel1" > 1
+			<!-- 이곳에 숫자가 출력됩니다. -->
+		</div>
+	
+		<div id="nav">
+			참여인원 : <input type="text" id="lab_total" value="100">
+			<button id="btn_start">시작</button>
+			<button id="btn_stop">멈춤</button>
+		</div>
+	</div>	 
+</body>
+</html>

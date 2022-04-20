@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+ 
+</script>
+</head>
+<body>
+ <strong> 함수 객체의 메서드 : call, apply, bind</strong><br> 
+ 
+ <script>
+ var example = function (a, b, c) {
+	  return a + b + c;
+	};
+document.write(example(1, 2, 3)+"<br>");	//함수 호출
+//call은 함수와 똑같이 인자를 넣고 함수를 호출
+document.write(example.call(null, 1, 2, 3)+"<br>"); 
+//apply는 인자를 하나로 묶어 배열로 만들어 인수 전달해서 함수를 호출
+document.write(example.apply(null, [1, 2, 3])+"<br>"); 
+
+var obj = {
+	message : 'Hello',
+	show : function() {
+		alert(this.message);
+	}
+}
+
+var obj2 = {
+	message : " 금요일^^"
+}
+obj.show();
+obj.show.call(obj2); //다른 객체의 메서드를 자신의 메서드처럼 사용
+ </script>
+ 브라우저 최상위 객체 : window <br>
+ <strong>전역 Scope에서 this는 window를 의미합니다.</strong><br>
+ <script>
+ document.write((this===window)+"<br>"); 
+ 
+ function example() {
+	 document.write(arguments+"<br>");  // 배열과 유사하지만 배열은 아님
+	// Array내장객체의 join메서드는 배열의 모든 요소를 결합, 단일 문자열로 반환
+	 //document.write(arguments.join()+"<br>");  
+ }
+ example(1, 'friday', true);
+ function example3() {
+	 document.write(Array.prototype.join.call(arguments )+"<br>"); 
+ }
+ example3(1, 'friday', true);
+ </script>
+ <strong>bind 함수는 함수가 가리키는 this만 바꾸고 호출하지 않습니다.</strong><br>
+ <script>
+ var show2 = obj.show.bind(obj2);
+ //show2();
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

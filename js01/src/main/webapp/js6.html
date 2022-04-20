@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+ 
+</script>
+</head>
+<body>
+자바스크립트 언어 : 인터프리터 언어, 함수적 프로그래밍 언어, 객체지향 언어 <br>
+<strong>함수 내부에 함수를 정의 할 수 있습니다.  
+=> 외부함수와 충돌이 발생되는 경우, 함수를 사용하는 내부에 정의</strong> <br>
+내부함수는 내부함수가 정의된 함수 내부에서만 호출할 수 있습니다.<br>
+
+ <script> 
+  /* Kim이 만든 함수 */
+  // 제곱을 구하는 함수
+  function square(x) { return x * x; }
+  
+  function pythagoras(width, height) {       
+       function square(x) { return x * x; }
+     return Math.sqrt(square(width) + square(height));
+  }
+  document.write(pythagoras(3, 4)+"<br>");
+  /* Lee이 만든 함수 */
+  // 삼각형이 직각인지 확인하는 함수
+  function square(width, height, hypotenuse) {
+	  if (width * width + height * height == hypotenuse * hypotenuse) {
+		  return true;
+	  }else {
+		  return false;
+	  }
+  } 
+  
+ </script>
+ <strong>함수를 호출되는 함수의 파라미터로 전달할 수 있습니다. </strong> <br>
+ <script>
+ function callee(){
+	 alert("callee");
+ }
+ function caller(c){
+	 for(var i=0;i<5;i++){
+		 c();
+	 }
+ }
+ //caller(callee); 
+ </script>
+ <strong>함수에서 함수 정의를 리턴 할 수 있습니다. </strong> <br>
+ <script>
+ function returnFunction(){
+	 return function(){
+		 
+			alert("함수 호출의 결과로 리턴되는 함수의 실행입니다.");
+		}
+ }
+//returnFunction()();//함수를 호출하고 리턴되는 함수를 실행
+ 
+ var func1 = returnFunction();
+ //func1();
+ 
+ </script>
+ <strong> 클로저(Closure)</strong> <br>
+ Scope : 변수 접근 규칙에 따른 유효 범위 <br>
+ <script>
+ /*
+ var g =1 ;//전역변수 (window객체의 속성으로 g가 추가됨)
+ function f(){
+	 let local = 100; //로컬변수
+	 document.write("로컬변수 :"+local+"<br>")
+	 document.write("전역변수 : "+g+"<br>")
+ }
+ f();
+ document.write("로컬변수 from 전역Scope :"+local+"<br>")
+ document.write("전역변수 from 전역Scope: "+g+"<br>")
+ */ 
+ </script>
+ 클로저 함수는 외부함수의 실행이 끝나더라도 외부 함수 내 로컬변수를 사용할 수 있습니다<br>
+ <script>
+ function outerFn(){
+	 let x = 10;
+	 return function innerFn(y){ //innerFn는 클로저 함수입니다.
+		 return x=x+y;
+	 }
+ }
+ let a = outerFn();
+ document.write(a(5)+"<br>");
+ document.write(a(5)+"<br>");
+ document.write(a(5)+"<br>");
+ 
+ let globalFunc; //전역변수
+ {
+ //local Scope
+   let z=10;
+   globalFunc = function(y){  //클로저 함수
+	   return z=z+y;
+   }
+ }
+ 
+ document.write(globalFunc(10)+"<br>");
+ document.write(globalFunc(10)+"<br>");
+ document.write(globalFunc(10)+"<br>");
+ 
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

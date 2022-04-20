@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+        
+</style>
+<script>
+window.onload = function(){
+	 
+}
+</script>
+</head>
+<body> 
+<strong> 예외처리 : </strong><br>
+ 프로그램이 실행되는 동안 문제가 발생하면 프로그램 실행은 중단됨 <br>
+ 1. 예외가 발생하지 않게 사전에 해결 : if 조건으로 사전 체크<br>
+ 2. try catch finally 구문 <br>
+ throw 키워드로 예외를 강제로 발생시킬 수 있음<br>
+ <script>
+    function divide(alpha, beta){
+    	if (beta ==0){
+    		throw 'DivideByZeroException';
+    	}else{
+    		return alpha/beta;
+    	}
+    }
+    
+    try{
+        divide(10, 0);        
+    }catch(exception){
+    	alert(exception);
+    	
+    }
+ </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+ 
+
+</script>
+</head>
+<body>
+JavaScript 내장 객체 : Object, Array, String, JSON, Math,...<br>
+JavaScript Browser 객체 : window, document, location, screen,...<br>
+<strong>  </strong><br> 
+<script>
+console.log(window);
+var child = window.open("", "child", 
+		"width=200, height=200, location=no, menubar=no, status=no", true);
+child.moveTo(0, 0);	
+/*
+ setInterval(function(){
+	 child.moveBy(10, 10);
+}, 500);
+*/
+setTimeout(function(){
+	 child.moveBy(200, 200);
+}, 1000);
+</script> 
+자바스크립트를 이용하면 브라우저의 정보에 접근하거나 브라우저의 여러 기능들을 제어할 수 있습니다.<br>
+브라우저 객체 모델(BOM)은 문서 객체 모델(DOM)과는 달리 W3C의 표준 객체 모델은 아닙니다.<br>
+<strong>window 객체 </strong>: 웹 브라우저의 창(window)을 나타내는 객체<br>
+window 객체의 메소드는 전역 함수이며, window 객체의 프로퍼티는 전역 변수가 됩니다.<br>
+window 객체의 innerHeight와 innerWidth 프로퍼티를 이용하면, 브라우저의 창 크기를 설정할 
+수 있습니다.<br>
+window 객체의 모든 메소드나 프로퍼티를 사용할 때는 window라는 접두사를 생략할 수 있습니다.<br>
+<strong>document 객체 </strong> :  브라우저 창에 표시되는 내용에 해당하는 문서(document)를 나타내는 객체 <br>
+<strong>screen 객체 </strong> :   운영체제 화면의 속성을 가지는 객체 (height, width, availWidth, availHeight, colorDepth, pixcelDepth)<br>
+<strong>location 객체 </strong> : 브라우저의 주소 표시줄과 관련된 객체 (href, host, hostname, port, ..assign(url), reload(), replace(url)) <br>
+location="http://www.naver.com";<br>
+location.href="http://www.naver.com";<br>
+location.assign( "http://www.naver.com");<br>
+location.replace("http://www.naver.com");<br>
+페이지 새로 고침 방법  : <br>
+location=location;
+location.href=location.href;
+location.assign(location);
+location.replace(location);
+location.reload();
+<script>
+console.log(screen);
+console.log(location);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

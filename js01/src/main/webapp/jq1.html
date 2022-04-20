@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+        
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+/*
+jQuery(document).ready(function(){
+	jQuery("p").click(function(){
+		jQuery(this).hide();
+	})
+})
+*/
+ 
+$(document).ready(function(){
+	/*
+	$("p").click(function(){
+		$(this).hide();
+	})
+	*/
+	//$("*").css("color", "blue");
+	//$("#p1").css("color", "blue");
+	//$(".p2").css("color", "magenta");
+	//$("p:first").css("color", "cyan");
+	//$("p:last").css("color", "magenta");
+	//$("p:even").css("color", "green");
+	//$("p:odd").css("color", "orange");
+	//$("div > p ").css("color", "magenta");
+	//$("div p ").css("color", "cyan");
+	//$("p:nth-child(3n+1)").css("color","green");
+	//$("p:gt(7)").css("color", "blue");
+	//$("p:lt(3)").css("color", "magenta");
+	$("[title$='tip4']").css("color", "yellow");
+	//$("[type='password']").css("background-color", "magenta");
+	$('input:password').css("background-color", "magenta");
+})
+</script>
+</head>
+<body> 
+
+text :<input type="text"><br>
+password : <input type="password"><br>
+radio : <input type="radio"><br>
+checkbox : <input type="checkbox"><br>
+<p title="tooltip1">javascript 1</p>
+<p title="tooltip2">javascript 2</p>
+<p title="tooltip3">javascript 3</p>
+<p title="tooltip4">javascript 4</p>
+<p id="p1">javascript 5</p>
+<p class="p2">javascript 6</p>
+<p>javascript 7</p>
+<p class="p2">javascript 8</p>
+<p>javascript 9</p>
+<p>javascript 10</p>
+<div><p>only child</p></div>
+<div><section><article><p>child1</p></article></section>
+<span>Child2</span></div>
+<hr>
+<strong> jQuery : </strong><br>
+
+2000년대 중반,  IE 브라우저가 웹 표준을 준수하지 않았고, 다른 브라우저는 웹 표준을 준수함 <br>
+2006년 1월, 존 레식 <br>
+ jQuery : 모든 브라우저에서 동작하는 클라이언트 자바스크립트 라이브러리 <br>
+ 오픈소스 라이브러리<br>
+ DOM과 관련된 처리 쉽게 구현 - CSS의 selector문법 사용<br>
+ 이벤트 연결 쉽게 구현<br>
+ 시각적 효과 쉽게 구현 <br>
+ Ajax 애플리케이션 쉽게 개발 <br>
+ Content Delevery Network (CDN) -온라인 상에 대용량 컨텐츠를 저렴한 비용으로 빠르고 
+ 안정적으로 전송하는 기술 <br>
+ <p>주요 ISP의 CDN 서버에 컨텐츠를 분산시키고 유저가 네트웍 경로상 가장 가까운 곳
+의 서버로부터 컨텐츠를 전송 받도록 하여 트래픽이 특정 서버에 집중 되지 않고 각
+지역 서버로 분산되도록 하는 기술입니다</p><br>
+ $("대상 문서요소를 css 선택자")<br>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

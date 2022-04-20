@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+ 
+<script>
+ 
+</script>
+</head>
+<body>
+함수를 정의해서 필요할 때마다 호출해야 하는 경우  &lt;head&gt; 태그에 자바스크립로 정의합니다.<br>
+html페이지의 내용이 렌더링되면서 자바스크립트가 즉시 실행되도록 하려면   &lt;body&gt; 
+태그에 자바스크립로 정의합니다.<br>
+<script>
+  document.write("html페이지 내부에 출력됨 <br>");
+  document.write("body태그내에 자바스크립트는 순차적으로 즉시 실행됨 <br>");
+  console.log("브라우저 콘솔창에 출력 , debuger용도로 사용됨 ");  
+</script>
+<hr>
+변수 선언 : var 변수명 = 초기값; <br>
+수명, 함수명, 객체명은 식별자 규칙에 유효해야 합니다. <br>
+자바 스크립트에서 문자열에 대한 표현은 "", ''를 사용합니다.<br>
+자바스크립트의 데이터 타입 : number, string, boolean, object, function, undefined<br>
+자바스크립트는 기본형 데이터는 정수와 실수를 구별하지 않음<br>
+자바스크립트는 배열을 객체로 취급함<br>
+자바스크립트는 객체지향언어+함수적 프로그래밍 언어 <br>
+자바스크립트는 함수를 1급 객체로 취급함<br>
+<script>
+var v1 = 10;
+var v2 = 0x11; //16진수 표현
+var v3 = 077; //8진수 표현
+var v4 = 52.312;
+var s1 = '대한민국';
+var b1 = true;
+document.writeln(v1+ "=> data type은 "+typeof(v1)+'<br>');
+document.writeln(v2+ "=> data type은 "+typeof(v2)+'<br>');
+document.writeln(v3+ "=> data type은 "+typeof(v3)+'<br>');
+document.writeln(v4+ "=> data type은 "+typeof(v4)+'<br>');
+document.writeln(s1+ "=> data type은 "+typeof(s1)+'<br>');
+document.writeln(b1+ "=> data type은 "+typeof(b1)+'<br>');
+v1 = [ 1,2,3,4,5];
+document.writeln(v1+ "=> data type은 "+typeof(v1)+'<br>');
+v2 = {"name": "korea", "address" : "seoul"};  //JSON(JavaScript Object Notation)
+document.writeln(v2+ "=> data type은 "+typeof(v2)+'<br>');
+function f(){
+	
+}
+document.writeln(f+ "=> data type은 "+typeof(f)+'<br>');
+document.writeln("선언되지 않은 변수의 data type은 "+typeof(a)+'<br>');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

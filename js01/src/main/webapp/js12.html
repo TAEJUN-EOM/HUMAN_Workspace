@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+브라우저 내부에 이벤트 큐 <br>
+id =setTimeout(function, millisecond)<br>
+id =setInterval(function, millisecond)<br>
+clearTimeout(id)<br>
+clearInterval(id)<br>
+moveBy(x, y) : 상대적 위치, moveTo(x, y) :절대적 위치값<br>
+resizeBy(x, y), resizeTo(x, y)<br>
+scrollBy(x, y), scrollTo(x, y)<br>
+focus(), blur()<br>
+운영체제 화면의 속성을 가지는 객체 : screen<br>
+화면의 높이, 너비, 실제 화면에서 사용 가능한 너비, 높이, 사용 가능한 색상 수, 
+픽셀당 비트 수 <br>
+<script>
+var output=""
+for (var key in screen){
+	output+=  '● ' + key + ' : ' +screen[key]+"<br>";
+}
+document.write(output);
+</script>
+<hr>
+브라우저의 주소 표시줄과 관련된 객체 : location <br>
+assign(), reload(0), replace() <br>
+<script>
+var output=""
+for (var key in location){
+	output+=  '● ' + key + ' : ' + location[key]+"<br>";
+}
+document.write(output);
+</script>
+<hr>
+웹 페이지 실행하고 있는 브라우저에 대한 정보를 저장 : navigator <br>
+반응형 웹 컨텐츠 <br>
+ 
+<script>
+var output=""
+for (var key in navigator){
+	output+=  '● ' + key + ' : ' + navigator[key]+"<br>";
+}
+document.write(output);
+</script>
+<hr>
+</body>
+</html>

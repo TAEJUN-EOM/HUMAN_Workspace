@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title> 
+<script>
+ 
+</script>
+</head>
+<body>
+자바스크립트 언어 : 인터프리터 언어, 함수적 프로그래밍 언어, 객체지향 언어 <br>
+<strong>객체 : </strong><br> 
+캡슐화 : 속성은 클래스 외부에서 직접적으로 access 못하고, 메서드를 통해서 access하도록... <br>
+속성은 private, 속성에 대해서 setter/getter() <br>
+  
+ <script>
+ function Rectangle(w, h){
+	 let width = w;
+	 let height = h;
+	 
+	 this.getWidth = function(){
+			return width;
+		}
+	 this.getHeight = function(){
+			return height;
+	 }
+ }
+ 
+ var rect1 = new Rectangle(100,200);
+ document.write(rect1.getWidth()+","+rect1.getHeight()+"<br>");
+ console.log(rect1);
+ console.dir(rect1);
+ </script>
+ <hr>
+ <strong>상속 </strong><br>
+ <script>
+ class Person { 
+	 constructor (name,age, city) { //속성 선언과 초기화
+		 this.name = name; 
+		 this.age = age; 
+		 this.city = city;
+		 }
+	 nextYearAge() {  //메서드
+		 return Number(this.age) + 1; 
+		 } 
+ }
+ 
+ //Person을 상속받는 자식클래스 
+ class introducePerson extends Person {
+	 introduce () { //메서드
+		 return `저는 ${this.city}에 사는 ${this.name} 입니다.`;
+	 }
+ }
+ 
+ let kim  = new introducePerson("kim",  25 , "Seoul");//객체 생성
+ document.write(kim.introduce() +"<br>");
+ //document.write(kim instanceof Person +"<br>");
+ //document.write(kim instanceof introducePerson +"<br>");
+ 
+ function Rectangle(w, h){
+	var width = w;//private 속성으로 정의됨
+	var height = h;
+	this.getWidth = function(){ return width;}
+	this.getHeight = function(){return height;}
+	this.setWidth = function(w){
+			if(w>0){
+				width = w;
+			}else{
+				throw '음수를 너비로 설정할 수 없습니다.';
+			}
+	};
+	this.setHeight = function(h){
+			if(h>0){
+				height = h;
+			}else{
+				throw '음수를 높이로 설정할 수 없습니다.';
+			}
+	};
+ }
+ Rectangle.prototype.getArea = function(){
+		return this.getWidth()* this.getHeight();
+	}
+ 
+ function Square (length){
+	 this.base = Rectangle;  //상속받을 객체를 저장하는 변수 선언
+	 this.base(length, length) ;//저장된 객체의 생성자를 호출해서 객체 생성함
+ }
+ 
+ Square.prototype =new Rectangle();
+ Square.prototype.constructor = Square; 
+ console.log(Square.prototype);
+ 
+ var rect = new Rectangle(5, 7);
+ var square = new Square(5, 5);
+ document.write(square.getArea()+", "+rect.getArea()+"<br>") ;
+ document.write( square instanceof Rectangle );
+ 
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

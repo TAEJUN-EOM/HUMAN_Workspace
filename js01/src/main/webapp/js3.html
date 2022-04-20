@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+ 
+<script>
+ 
+</script>
+</head>
+<body>
+ 
+<br>
+<strong> 변수 선언 :</strong> <br>
+ 1. var 변수 선언은 한번 선언했음에도 다시 선언한 경우 에러가 발생하지 않음<br>
+ 유연한 변수 선언으로 테스트에는 편리할 수 있지만, 코드량이 많아지면 어디에서 어떻게 사용될지 <br>
+ 파악하기 힘들고 값이 바뀔 우려가 있다<br>
+ 2. let 변수 선언은 재선언시에 오류 발생<br>
+ 3. const 선언된 변수는 변경할수 없는 상수 (재선언과 값 재할당 모두 오류 발생)<br>
+<script>
+var num= 10;
+document.write(num+"<br>");
+var num = "korea";
+document.write(num+"<br>");
+
+let name= 10;   //ES6에서 추가되
+document.write(name+"<br>");
+/*
+let name = "korea";
+document.write(name);
+*/
+const age=20;  
+document.write(age+"<br>");
+//age = 30;
+</script>
+<hr>
+<strong> 사용자로부터 입력 받기 :</strong> <br>
+html에서는 form 태그 내에 &lt;input&gt;, &lt;textarea&gt; , &lt;select&gt; 등을 사용<br>
+문자열이나 숫자를 입력받을때 자바스크립에서는 window.prompt()사용 <br> 
+boolean값을 입력받을때 자바스크립에서는 window.confirm()사용 <br> 
+ <script>
+ var num = window.prompt("1~100 사이의 숫자를 입력하세요", 0);
+ document.write(typeof(num)+ num+"<br>");
+ document.write(typeof(Number(num))+"<br>");
+ document.write(typeof(parseInt(num))+"<br>");
+ document.write( parseInt("2020korea")+"<br>");
+ var res = window.confirm("프로그램을 종료하시겠습니까?");
+ document.write(typeof(res)+","+res);
+ </script>
+ <hr>
+ <strong> 제어문  :</strong> <br>
+ if, else , nested if, 다중 if문 <br>
+ Quiz> 사용자로부터 정수(0~100사이)를 입력받아서 짝수 홀수 출력 <br>
+ 삼항 연산자 => (조건문) : (조건식)? true일때 수행 문장 : false일때 수행하는 문장<br>
+ 조건식1 && 조건식2(실행문장2) => 조건식1이 true이면 조건식2(실행문장2)수행<br>
+ 조건식1 && 조건식2(실행문장2) => 조건식1이 false이면 조건식2(실행문장2)수행 안함<br>
+ true  && 문장(실행문장)<br>
+ 조건식1 || 조건식2(실행문장2) => 조건식1이 true이면 조건식2(실행문장2)수행 안함<br>
+ 조건식1 || 조건식2(실행문장2) => 조건식1이 false이면 조건식2(실행문장2)수행 <br>
+ false || 문장(실행문장)<br>
+ <script>
+ /*
+ var jum= Number(window.prompt("1~100사이의 수를 입력하세요", 0));
+ (jum%2==0)? alert("짝수") : alert("홀수");
+ */
+ </script>
+ <script>
+ /*
+  var jum= Number(window.prompt("1~100사이의 수를 입력하세요", 0));
+  (jum%2==0) || alert("홀수");
+  (jum%2==0) && alert("짝수");
+  */
+ </script>
+ <hr>
+ <strong>switch문 : javascript에서는 범위 비교 연산이 가능합니다. (case에 범위비교 표현식 정의 가능)</strong></strong><br>
+ Quiz>사용자로부터 1~100 사이의 점수를 입력받아서 A(>=90), B(>=80), C(>=70),
+ D(>=60), F(<60) 등급을 판별을 switch구문을 사용하여 자바스크립트로 구현하시오<br>
+ <script>
+ /*
+ var jumsu = Number(window.prompt("1~100사이의 점수를 입력하세요", 0));
+ switch(true){
+  case jumsu >89 : alert("A"); break;
+  case jumsu >79 : alert("B"); break;
+  case jumsu >69 : alert("C"); break;
+  case jumsu >59 : alert("D"); break;
+   default : alert("F"); break;
+ }*/
+ 
+ </script>
+ 
+ <script>
+ var character =  window.prompt("영문자를 입력하세요", 'A');
+ switch(character){
+  case 'A' : alert("Apple"); break;
+  case 'B': alert("Bell"); break;
+  case 'C' : alert("Cloud"); break;  
+  default : alert("UnKown"); break;
+ }
+ </script>
+  <hr>
+  반복문 : for(카운트변수 초기화 ; 조건식 ; 증감식 ){ 반복 수행 문장; } <br>
+          while(조건) {반복 수행 문장;} <br>
+          do { 반복 수행 문장;}while(조건); <br>
+ 반복횟수를 알고 있을때 for문 사용<br>
+ 반복 수행 조건을 알고 있을때 while문 사용(선 조건체크, 후 수행)<br> 
+ 최초 1번은 조건과 관계없이 수행후 조건을 체크해서 반복 수행여부를 결정 do~while문 사용(선 수행, 후 조건체크 )<br>
+ 무한루프 : while(true){} , for(;   ;){}<br>    
+ for in문으로 순차적 처리 <br>     
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

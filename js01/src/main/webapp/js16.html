@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script>
+window.onload = function () {
+	var header = document.createElement('h1');
+	header.setAttribute('id', 'header')
+    var textNode = document.createTextNode('Hello DOM');
+    header.appendChild(textNode);
+    document.body.appendChild(header);
+    
+    var img = document.createElement('img');
+    img.setAttribute('src', './images/naver.gif')
+    img.setAttribute('width', 100);
+    img.setAttribute('height', 50);
+    document.body.appendChild(img);
+    
+    header.style.border='2px solid blue';
+    header.style.color='Orange';
+    
+    var willRemove = document.getElementById('header3');
+    document.body.removeChild(willRemove);
+    
+
+}
+ 
+</script> 
+</head>
+<body>
+<h3 id="header3"> Header 3</h3>
+createElement(tagName) : 새로운 노드(태그)객체를 생성 <br>
+createTextNode(text) : 텍스트 노드(태그의 내용)를 생성 <br>
+parentNode.appendChild(node) : 객체에 노드를 연결합니다.<br>
+setAttribute(name, value) : 태그 객체의 속성을 설정<br>
+getAttribute(name) : 태그 객체의 속성값 반환<br>
+태그에 내용을 추가할때 : 태그객체.innerHTML 속성 사용<br>
+문서(태그) 객체의 스타일 변경 : style 속성과 css속성 사용<br>
+removeChild(child) : 문서 객체의 자식 노드를 제거 <br>
+
+  
+  
+</body>
+</html>
+
+
+

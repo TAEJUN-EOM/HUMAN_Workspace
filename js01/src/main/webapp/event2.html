@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style>
+#div1 { border:2px solid black; 
+        width:400px;
+        height:250px;       
+        padding : 10px;
+        margin : 10px;
+        }
+#div2 { border:2px solid black; 
+        width:350px;
+        height:200px;        
+         padding : 10px;
+        margin : 10px;
+        }     
+#header { border:2px solid black; 
+        width:300px;
+        height:150px;        
+         padding : 10px;
+        margin : 10px;
+        } 
+#p1 { border:2px solid black; 
+      width:250px;
+      height:100px;      
+      padding : 10px;
+        margin : 10px;
+        }         
+</style>
+<script>
+window.onload = function () {
+	var h1 = document.getElementById("header");
+	var p1 = document.getElementById("p1");
+	var div1 = document.getElementById("div1");
+	var div2 = document.getElementById("div2");
+	div1.onclick = function(evt){
+		evt.stopPropagation(); 
+		this.style.background="orange" ;
+	}
+	div2.onclick = function(evt){
+		evt.stopPropagation(); 
+		this.style.background="cyan" ;
+	}
+	h1.onclick = function(evt){
+		evt.stopPropagation(); 
+		this.style.background="violet" ;
+	}
+	p1.onclick = function(evt){
+		evt.stopPropagation(); //이벤트 전파 중단시킴
+		this.style.background="olive" ;
+		
+	}           
+};
+</script>
+</head>
+<body> 
+<strong> 이벤트 전달 방식 :  </strong><br>
+ 1. 이벤트 버블링 :  자식 노드에서 부모 노드 순으로 이벤트 실행<br>
+ 2. 이벤트 캡쳐링 : 이벤트가 부모 노드에서 자식 노드 순으로 실행<br>
+모든 브라우저의 기본 이벤트 이벤트 전달 방식은 이벤트 버블링입니다<br>
+모든 이벤트 핸들러 함수는 호출될때 첫번째 파라미터로 발생한 이벤트 객체가 전달됩니다<br> 
+<div id="div1">
+<div id="div2">
+<h1 id="header">
+<p id="p1"> Event Bubbling</p>
+</h1>
+</div>
+</div>
+
+
+</body>
+</html>
