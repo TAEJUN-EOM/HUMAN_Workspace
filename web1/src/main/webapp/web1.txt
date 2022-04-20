@@ -1,0 +1,261 @@
+메모리에 생성된 객체를 파일에 저장하거나 , 네트워크로 전송하려면 직렬화가 필요함
+객체의 직렬화란 객체를 스트림으로 파일에 저장하는 방법
+객체를 직렬화 하기위한 두 가지 방법으로 Serializable(마크 인터페이스)과 Externalizable 인터페이스 구현
+Serializable 인터페이스를 구현한 클래스를 작성하면 해당 클래스의 모든 멤버변수가 직렬화 대상이 된다
+Serializable 인터페이스를 구현한 클래스 객체의 멤버변수 중에 직렬화 대상에 제외하고 싶다면 transient 키워드를 사용하면 된다
+예) public transient int age;
+Externalizable 인터페이스는 Serializable 인터페이스의 서브 인터페이스이다
+public interface Externalizable extends Serializable{
+	public void readExternal(ObjectInput in) throws IOException,ClassNotFoundException;
+	public void writeExternal(ObjectOutput out) throws 	IOExcepiton;
+}
+이용하여 특정 멤버 변수만을 직렬화 할 수 있는 기능을 제공한다
+
+객체를 직렬화 하고 다시 역직렬화 시킬 수 있는 클래스가 ObjectInputStream과 ObjectOutputStream 이다.
+obj가 Serializable 인터페이스로 구현되어 있지 않다면 NotSerializableException 예외가 발생한다.
+
+#############################################################################
+Web Client에 전송하는 형식은 브라우저가 해석할 수 있는 HTML을 전송합니다.
+HTML에는 javascript와 css, image자원등이 포함됩니다.
+웹 서비스를 하려면 웹서버(정적 처리)가 필요합니다.
+자바기반으로 client요청을 처리하려면 servlet(server applet) 클래스가 실행될 수 있는 JVM 런타임 환경이 필요하며, 웹 컨테이너를 포함하는 WAS(Web Application Server)가 구성되어야 합니다.
+
+
+자바 기반의 웹서비스를 제공하기 위해서는 표준화된 웹 컨텍스트를 생성해야 합니다. 
+(jar, war)
+표준 웹 컨텍스트를 war로 압축해서 다른 WAS에 배포해서 서비스 할 수 있습니다.
+
+
+
+
+
+
+
+Servlet(Server에서 실행되는 Applet) Specification :
+public class 선언
+HttpServlet 클래스를 상속받음
+lifecycle 메서드 : init() 를 override해서 초기화 수행(선택)
+                        service(), doGet(), doPost() 와 같은 요청을 처리 메서드를 override구현
+                         Java코드 내에 응답 페이지의 html내용을 포함
+                         IOException과 ServletException을 처리해야 함
+                        destroy()를 override해서 서블릿에서 사용한 자원을 정리함
+
+
+JSP(.jsp) Java Server Page
+HTML태그내에 java code를 스크립트로 넣어줌
+최초 JSP 요청에 대해서 서블릿 .java 소스 코드 생성(변환)
+서블릿 컴파일 => class  생성
+Web Container의 메모리에 로딩
+객체 생성 -> init() -> service() 호출-> destroy()
+
+MVC패턴
+http 요청 방식 - get, post, put, delete, ...
+http 프로토콜 구조
+
+################index.html####################################
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+web1 웹 컨텍스트의 WelCome 파일 index.html 페이지 입니다.
+</body>
+</html>
+
+###################HelloServlet ###########################################
+package lab.web.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+ 
+public class HelloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;       
+   
+    public HelloServlet() {
+    	super();        
+    }	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("<!DOCTYPE html>");
+		out.print("<html> <head>");
+		out.print("<meta charset=\"utf-8\">");
+		out.print("<title>Insert title here</title>");
+		out.print("</head> <body>");
+		out.print("안녕하세요? HelloServlet입니다^^");
+		out.print("</body></html>");
+	}
+
+}
+
+
+##########################hello.jsp#####################################
+
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>hello.jsp</title>
+</head>
+<body>
+안녕하세요? hello.jsp페이지입니다.<br>
+JSP페이지에 자바 코드를 넣을 때는 스크립틀릿을 사용합니다.<br>
+<% out.print(new Date()); %><br> <!-- 실행코드가 들어가는 스크립틀릿 -->
+<%= new Date()  %><br>  <!-- 출력되는 내용이 들어가는 expression -->
+</body>
+</html>
+
+
+
+
+##########################login.jsp#####################################
+
+<%@ page   contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta  charset="UTF-8">
+<title>로그인 폼</title>
+</head>
+<body>
+<center><h3>로그인</h3>
+<hr>
+<form action="login.do" method="POST">
+<table>
+<tr><td colspan="2" align="center">로그인</td></tr>
+<tr><td> 아이디 </td>
+<td><input type="text" name="userid"></td></tr>
+<tr><td> 비밀번호 </td>
+<td><input type="password" name="userpwd"></td></tr>
+<tr><td colspan="2" align="center"><input type="submit" value="로그인">
+<input type="reset" value="취소"></td></tr>
+</table>
+</form>
+</center>
+</body>
+</html>
+
+
+##########################calc.html#####################################
+<!DOCTYPE html  >
+<html>
+<head>
+<meta  charset="UTF-8">
+<TITLE> 계산기</TITLE>
+</HEAD>
+
+<BODY>
+<CENTER>
+<H3>계산기</H3>
+<HR>
+<!-- action 의 서블릿 요청 경로에 주의 해야함. 서블릿 클래스에 선언된 요청과 같아야 함 -->
+<form name=form1 action="Calc" method=post>
+<INPUT TYPE="text" NAME="num1" width=200 size="5">
+<SELECT NAME="operator"> 
+	<option selected>+</option>
+	<option>-</option>
+	<option>*</option>
+	<option>/</option>
+</SELECT>
+<INPUT TYPE="text" NAME="num2" width=200 size="5"> 
+ <input type="submit" value="계산" name="B1"> <input type="reset" value="다시입력" name="B2">
+</form>
+</CENTER>
+</BODY>
+</HTML>
+
+
+
+
+########################### CalcServlet #######################################
+package lab.web.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+ 
+public class CalcServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;       
+     
+    public CalcServlet() {
+        super();        
+    }
+	
+    // POST 요청을 처리하기 위한 메서드
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int  num1,num2;
+		int result;
+		String op;
+		// 클라이언트 응답시 전달될 컨텐트에 대한 타입 설정과 캐릿터셋 지정
+		response.setContentType("text/html; charset=UTF-8");
+		//클라이언트 응답을 위한 출력 스트림 객체 생성
+		PrintWriter out = response.getWriter();
+		// HTML 폼을 통해 전달된 num1, num2 파라미터 값을 변수에 할당한다.
+		num1 = Integer.parseInt(request.getParameter("num1"));
+		num2 = Integer.parseInt(request.getParameter("num2"));
+		op = request.getParameter("operator");
+		result = calc(num1,num2,op);
+		// 출력 스트림을 통해 응답 페이지 내용 구성
+		out.println("<HTML>");
+		out.println("<HEAD><TITLE>계산기</TITLE></HEAD>");
+		out.println("<BODY><center>");
+		out.println("<H2>계산결과</H2>");
+		out.println("<HR>");
+		out.println(num1+" "+op+" "+num2+" = "+result);
+		out.println("</BODY></HTML>");
+	}
+	public int calc(int num1, int num2, String op) {
+		int result = 0;
+		switch(op) {
+		case "+" : result = num1 + num2; break;
+		case "-" : result = num1 - num2; break;
+		case "*" : result = num1 * num2; break;
+		case "/" : result = num1 / num2; break;
+		}
+		return result;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
